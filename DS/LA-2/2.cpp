@@ -23,28 +23,10 @@ int main()
             }
         }
     }
-    cout << "Enter the number to be searched" << endl;
-    cin >> num;
-    int start=0,end=n-1,mid,c=0;
-    while(start<=end)
+    cout << "Sorted array: ";
+    for(int i=0;i<n;i++)
     {
-        mid=(start+end)/2;
-        if(arr[mid]==num)
-        {
-            cout << num << " found at index "<< mid << endl;
-            c++;
-            break;
-        }
-        else if(arr[mid]>num)
-        {
-            end=mid-1;
-        }
-        else
-        {
-            start=mid+1;
-        }
+        cout << arr[i] << " ";
     }
-    if(c==0)
-        cout<< "Element not found" << endl;
     return 0;
 }
