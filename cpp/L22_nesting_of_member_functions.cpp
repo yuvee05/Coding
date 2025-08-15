@@ -33,6 +33,8 @@ void binary ::chk_bin(void)
 
 void binary ::ones_complement(void)
 {
+    chk_bin();
+    //a member function can be called by using it's name inside another member function of the same class
     for (int i = 0; i < s.length(); i++)
     {
         if (s.at(i) == '0')
