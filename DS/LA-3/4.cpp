@@ -23,7 +23,9 @@ public:
         string ans = "";
         for (int i = 0; i < s.length(); i++)
         {
-            if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9'))
+            if(s[i]==' ')
+                continue;
+            else if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9'))
                 ans = ans + s[i];
             else if (s[i] == '(')
                 st.push(s[i]);
@@ -64,7 +66,7 @@ int main()
     postfix x;
     cout << "Enter the infix expression" << endl;
     string str;
-    cin >> str;
+    getline(cin,str);
     string ans = x.post(str);
     cout << "The Postfix Expresson: " << ans;
     return 0;
