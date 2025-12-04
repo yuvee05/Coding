@@ -11,7 +11,7 @@ public:
     {
         a = num;
     }
-    //Whrn no copy constructor is found, compiler supplies its own copy constructor
+    //When no copy constructor is found, compiler supplies its own copy constructor
     Number(Number &obj)
     {
         cout << "Copy Constructor called!!!" << endl;

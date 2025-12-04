@@ -101,7 +101,7 @@ public:
 
     void deleteFromBeginning()
     {
-        if(head==nullptr)
+        if (head == nullptr)
         {
             cout << "List is Empty " << endl;
             return;
@@ -114,52 +114,52 @@ public:
 
     void deleteFromEnd()
     {
-        if(head==nullptr)
+        if (head == nullptr)
         {
             cout << "List is empty" << endl;
             return;
         }
         Node *current = head;
-        if(head->next==nullptr)
+        if (head->next == nullptr)
         {
             cout << head->data << " deleted from the end" << endl;
             delete head;
             head = nullptr;
             return;
         }
-        while(current->next->next != nullptr)
+        while (current->next->next != nullptr)
         {
             current = current->next;
         }
         cout << current->next->data << " deleted from the end" << endl;
         delete current->next;
-        current->next=nullptr;
+        current->next = nullptr;
     }
 
     void deleteSpecific(int value)
     {
-        if(head == nullptr)
+        if (head == nullptr)
         {
             cout << "List is empty" << endl;
             return;
         }
-        if(head->next == nullptr)
+        if (head->next == nullptr && head->data == value)
         {
             deleteFromBeginning();
             return;
         }
         Node *current = head;
-        while(current->next != nullptr && current->next->data != value)
+        while (current->next != nullptr && current->next->data != value)
         {
             current = current->next;
         }
-        if(current->next == nullptr)
+        if (current->next == nullptr)
         {
             cout << value << " not found in the list " << endl;
             return;
         }
         Node *temp = current->next;
-        current->next=current->next->next;
+        current->next = current->next->next;
         delete temp;
         cout << value << " deleted" << endl;
     }
@@ -168,35 +168,34 @@ public:
     {
         Node *current = head;
         int pos = 1;
-        while(current != nullptr && current->data != value)
+        while (current != nullptr && current->data != value)
         {
             current = current->next;
             pos++;
         }
-        if(current == nullptr)
+        if (current == nullptr)
         {
             cout << value << " not found in the list " << endl;
-            return; 
+            return;
         }
         cout << value << " found at position " << pos << endl;
     }
 
     void display()
     {
-        if(head == nullptr)
+        if (head == nullptr)
         {
             cout << "List is empty " << endl;
             return;
         }
         Node *current = head;
-        while(current != nullptr)
+        while (current != nullptr)
         {
             cout << current->data << " -> ";
             current = current->next;
         }
         cout << "NULL" << endl;
     }
-
 };
 
 int main()
@@ -249,19 +248,19 @@ int main()
             list.deleteFromEnd();
             break;
 
-        case 6: 
+        case 6:
             cout << "Enter the value to be deleted" << endl;
             cin >> value;
             list.deleteSpecific(value);
             break;
 
-        case 7: 
+        case 7:
             cout << "Enter the value to be searched" << endl;
             cin >> value;
             list.search(value);
             break;
 
-        case 8: 
+        case 8:
             list.display();
             break;
 

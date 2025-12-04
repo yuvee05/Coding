@@ -8,7 +8,7 @@ protected:
     int y;
 
 public:
-    int z
+    int z;
 };
 
 class B : protected A
@@ -25,6 +25,6 @@ int main()
 {
     B ob;
     B ob1;
-    ob1.z = 20;
+    //ob1.z = 20;
     ob.display();
 }
