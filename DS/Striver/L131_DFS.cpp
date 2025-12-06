@@ -2,25 +2,17 @@
 #include <vector>
 #include <queue>
 using namespace std;
-void bfs(vector<int> a1[], int n )
+void dfs(vector<int> a1[], int n , int sp, bool vs[])
 {
-    queue<int> q;
-    int node;
-    bool arr[n+1] = {false};
-    q.push(1);
-    arr[1]=true;
-    while(!q.empty())
+    int node = sp;
+    vs[node]=true;
+    cout << node << " ";
+    for(auto it:a1[node])
     {
-        node = q.front();
-        q.pop();
-        cout << node << " ";
-        for(auto it : a1[node])
+        if(!vs[it])
         {
-            if(!arr[it])
-            {
-                q.push(it);
-                arr[it]=true;
-            }
+            vs[it]=true;
+            dfs(a1,n,it,vs);
         }
     }
     return;
@@ -49,5 +41,6 @@ int main()
                 a1[i].push_back(arr[j][0]);
         }
     }
-    bfs(a1,nodes);
+    bool vs[nodes+1]={false};
+    dfs(a1,nodes,1,vs);
 }

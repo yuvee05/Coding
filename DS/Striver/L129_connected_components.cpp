@@ -2,24 +2,22 @@
 #include <vector>
 #include <queue>
 using namespace std;
-void bfs(vector<int> a1[], int n )
+void bfs(vector<int> a1[], int n, bool vs[],int sn)
 {
     queue<int> q;
     int node;
-    bool arr[n+1] = {false};
-    q.push(1);
-    arr[1]=true;
+    q.push(sn);
+    vs[sn]=true;
     while(!q.empty())
     {
         node = q.front();
         q.pop();
-        cout << node << " ";
         for(auto it : a1[node])
         {
-            if(!arr[it])
+            if(!vs[it])
             {
                 q.push(it);
-                arr[it]=true;
+                vs[it]=true;
             }
         }
     }
@@ -49,5 +47,16 @@ int main()
                 a1[i].push_back(arr[j][0]);
         }
     }
-    bfs(a1,nodes);
+    bool vs[nodes+1]={false};
+    int count=0;
+    for(int i=1;i<=nodes;i++)
+    {
+        if(!vs[i])
+        {
+            count++;
+            bfs(a1,nodes,vs,i);
+        }
+    }
+    cout << "No. of components: " << count;
+    return 0;
 }

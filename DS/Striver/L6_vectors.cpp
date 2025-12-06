@@ -46,7 +46,7 @@ void explainVector()
 
     for(auto it5 : v)
     {
-        cout << it5 << " ";
+        cout << it5 << "+";
     }
 
     //{10,20,12,23}
